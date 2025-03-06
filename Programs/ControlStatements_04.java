@@ -1,4 +1,4 @@
-public class ControlStatements {
+public class ControlStatements_04 {
     public static void main(String[] args) {
        IfElseExample.ifElse();
        SwitchExample.switchStatement();
