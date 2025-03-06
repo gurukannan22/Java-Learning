@@ -17,7 +17,7 @@ public class ControlStatements_04 {
         }
     }
 
-    class ShortHandIfElseExample{
+    class ShortHandIfElseExample{ //  (Ternary Operator)
         static void shortHandIfElse(){
             int a = 10, b = 20, sum = a+b;
             String result = (sum < 40) ? "The Sum is Lesser than 40" : "The Sum is Greater than 40"; 
