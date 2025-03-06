@@ -17,6 +17,15 @@ public class ControlStatements_04 {
         }
     }
 
+    class ShortHandIfElseExample{
+        static void shortHandIfElse(){
+            int a = 10, b = 20, sum = a+b;
+            String result = (sum < 40) ? "The Sum is Lesser than 40" : "The Sum is Greater than 40"; 
+            // variable = (condition) ? expressionTrue :  expressionFalse;
+            System.out.println(result);
+        }
+    }
+
     class SwitchExample{
         static void switchStatement(){
             int day = 5;
