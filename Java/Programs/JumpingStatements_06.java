@@ -1,7 +1,9 @@
+package Programs;
+
 public class JumpingStatements_06 {
     public static void main(String[] args) {
-        BreakExample.breakStatement();
-        ContinueExample.continueStatement();
+//        BreakExample.breakStatement();
+//        ContinueExample.continueStatement();
         return; // Exits the main method
         // System.out.println("This not executed...");  // This will cause an error
     }

@@ -1,3 +1,11 @@
+package Programs;
+
+/**
+ * TypeCasting => converting one datatype into other is called Typecasting
+ * autocasting, manualcasting
+ *
+ */
+
 public class TypeCasting_02 {
     public static void main(String[] args) {
         int a = 21;
@@ -7,11 +15,5 @@ public class TypeCasting_02 {
         long myLong = (long) myDouble; // Manual casting
         System.out.println(myLong);
     }
-
-        /**
-         * TypeCasting => converting one datatype into other is called Typecasting
-         * autocasting, manualcasting
-         *
-         */
     
 }

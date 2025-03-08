@@ -1,6 +1,8 @@
+package Programs;
+
 public class ControlStatements_04 {
     public static void main(String[] args) {
-       IfElseExample.ifElse(); // Method calling 
+//       IfElseExample.ifElse(); // Method calling
        SwitchExample.switchStatement();
 
     }
@@ -9,10 +11,12 @@ public class ControlStatements_04 {
         static void ifElse() { // Method returns nothing (void => returns nothing) 
             int a = 10, b = 20, sum;
             sum = a+b;
-            if(sum < 40){ // checks the the given statement is true
+            if(sum < 10){ // checks the the given statement is true
                 System.out.println("The Sum is Lesser than 40");
+            } else if (sum > 70) {
+                System.out.println("The Sum is Greater than 20");
             }else{
-                System.out.println("The Sum is Greater than 40");
+                System.out.println("Else part is executed");
             }
         }
     }
@@ -28,8 +32,8 @@ public class ControlStatements_04 {
 
     class SwitchExample{
         static void switchStatement(){
-            int day = 5;
-            switch (day) { // Switch based the key 
+            int day = 3;
+            switch (day) { // Switch based the key
                 case 1:
                     System.out.println("Monday");
                     break;

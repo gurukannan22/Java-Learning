@@ -1,7 +1,9 @@
+package Programs;
+
 public class LoopingStatements_05 {
     public static void main(String[] args) {
-        ForLoopExample.forLoop();
-        WhileLoopExample.whileLoop();
+//        ForLoopExample.forLoop();
+//        WhileLoopExample.whileLoop();
         DoWhileLoopExample.doWhileLoop();
     }
 
@@ -28,11 +30,10 @@ public class LoopingStatements_05 {
 
     class DoWhileLoopExample{ // Executes at least one time
         static void doWhileLoop(){
-            int i = 1;
+            int i = 0;
             do{
-                System.out.println("Executing the Do While Loop for " + i + " times"); // executes the condition
-                i++;
-            } while(i<=5); // The condition is evaluated after the execution of the loop's body.
+                System.out.println("Executing the Do While Loop for " + i + " times");// executes the condition
+            } while(i<0); // The condition is evaluated after the execution of the loop's body.
                         // This ensures that the loop body is executed at least once, regardless of whether the condition is initially true or false.
         }
     }
