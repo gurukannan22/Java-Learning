@@ -1,0 +1,47 @@
+# Ignore compiled Java class files
+*.class
+
+# Ignore package files
+*.jar
+*.war
+*.ear
+
+# Ignore compiled files in bin/ and target/ directories
+bin/
+target/
+out/
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+
+# Ignore Eclipse files
+*.project
+*.classpath
+*.settings/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore Maven and Gradle files
+.mvn/
+.gradle/
+!gradle-wrapper.jar
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+
+# Default ignored files
+/shelf/
+/workspace.xml
+/misc.xml
+/vcs.xml
+/modules.xml
