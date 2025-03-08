@@ -45,3 +45,9 @@ Thumbs.db
 /misc.xml
 /vcs.xml
 /modules.xml
+
+# Ignore compiled Java files
+*.class
+
+# Ignore the entire 'out' directory
+out/
