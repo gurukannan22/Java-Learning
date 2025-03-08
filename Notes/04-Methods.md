@@ -1,4 +1,4 @@
-# **04 Methods**  
+# **Methods**  
 
 ## **1️⃣ What are Methods in Java?**  
 A **method** in Java is a **block of code that performs a specific task**. It helps in:  

@@ -1,4 +1,4 @@
-# **05 OOP Concepts** 
+# **OOPs Concepts** 
 
 ## **1️⃣ What is Object-Oriented Programming (OOP)?**  
 **Object-Oriented Programming (OOP)** is a programming paradigm based on the concept of **objects**, which bundle data and behavior together.  
@@ -50,6 +50,61 @@ public class Main {
 Car Brand: Toyota, Speed: 120 km/h
 ```
 
+---
+
+## ***2.1 Constructors in Java***
+A **constructor** is a special method used to **initialize objects** when they are created. It has:  
+✔ The **same name** as the class.  
+✔ **No return type** (not even `void`).  
+✔ **Automatic invocation** when an object is created.  
+
+### **Types of Constructors in Java**  
+1️⃣ **Default Constructor** → No parameters, initializes with default values.  
+2️⃣ **Parameterized Constructor** → Takes arguments to set values during object creation.  
+3️⃣ **Copy Constructor** → Copies values from another object.  
+
+### **Example: Default & Parameterized Constructors**
+```java
+class Car {
+    String brand;
+    int speed;
+
+    // Default Constructor
+    Car() {
+        brand = "Unknown";
+        speed = 0;
+        System.out.println("Default Constructor Called");
+    }
+
+    // Parameterized Constructor
+    Car(String b, int s) {
+        brand = b;
+        speed = s;
+        System.out.println("Parameterized Constructor Called");
+    }
+
+    void display() {
+        System.out.println("Car Brand: " + brand + ", Speed: " + speed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();  // Calls Default Constructor
+        car1.display();
+
+        Car car2 = new Car("Toyota", 120);  // Calls Parameterized Constructor
+        car2.display();
+    }
+}
+```
+**Output:**  
+```
+Default Constructor Called  
+Car Brand: Unknown, Speed: 0  
+Parameterized Constructor Called  
+Car Brand: Toyota, Speed: 120  
+```
 ---
 
 ## **3️⃣ Encapsulation (Data Hiding)**  
