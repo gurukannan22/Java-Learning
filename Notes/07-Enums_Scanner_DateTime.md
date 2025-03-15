@@ -1,6 +1,6 @@
 # **Enums, Scanner, DateTime**
 
-## **2️⃣ Enums in Java (Enumeration)**  
+## **1️⃣ Enums in Java (Enumeration)**  
 An **Enum** is a special class that represents a group of **constants (fixed values)**.  
 
 ### **Example: Enum in Java**
@@ -64,7 +64,7 @@ Selected Size: LARGE, Value: 30
 
 ---
 
-## **3️⃣ Scanner (User Input in Java)**  
+## **2️⃣ Scanner (User Input in Java)**  
 `Scanner` is used to take **user input** from the keyboard.  
 
 ### **Example: Taking User Input**
@@ -109,10 +109,10 @@ String fullName = sc.nextLine();  // Reads full name
 
 ---
 
-## **4️⃣ Date & Time in Java**  
+## **3️⃣ Date & Time in Java**  
 Java provides `java.util.Date`, `java.util.Calendar`, and `java.time` for handling date & time.
 
-### **Getting the Current Date and Time**
+### **3.1 Getting the Current Date and Time**
 ```java
 import java.util.Date;
 
@@ -130,7 +130,7 @@ Current Date and Time: Mon Mar 03 12:45:30 IST 2025
 
 ---
 
-### **Formatting Dates using `SimpleDateFormat`**
+### **3.2 Formatting Dates using `SimpleDateFormat`**
 ```java
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -150,7 +150,7 @@ Formatted Date: 03/03/2025 12:45:30
 
 ---
 
-### **Working with LocalDate, LocalTime, LocalDateTime (Java 8+)**
+### **3.3 Working with LocalDate, LocalTime, LocalDateTime (Java 8+)**
 ```java
 import java.time.LocalDate;
 import java.time.LocalTime;
