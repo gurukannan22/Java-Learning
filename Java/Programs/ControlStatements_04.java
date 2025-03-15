@@ -33,23 +33,27 @@ public class ControlStatements_04 {
     class SwitchExample{
         static void switchStatement(){
             int day = 3;
+            System.out.println("Please Select the option below\n 1.Monday\n 2.Tuesday\n 3.Wednesday");
             switch (day) { // Switch based the key
                 case 1:
-                    System.out.println("Monday");
+                    System.out.println("Working Day");
                     break;
                 case 2:
-                    System.out.println("Tuesday");
+                    System.out.println("Working Day");
                     break; 
                 case 3:
-                    System.out.println("Wednesday");
+                    System.out.println("Working Day");
                     break;
                 case 4:
-                    System.out.println("Thursday");
-                    break;
+                   System.out.println("Working Day");
+                   break;
                 case 5:
-                    System.out.println("Friday");
-                    break;
-                default:
+                   System.out.println("Working Day");
+                   break;
+                case 6:
+                   System.out.println("Leave");
+                   break;
+                    default:
                     System.out.println("Invalid Option Entry");
                     break;
             }

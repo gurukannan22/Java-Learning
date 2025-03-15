@@ -20,5 +20,10 @@ public class ComparisonOperators02 {
     //  }
      }
     }
+
+    /** LOGICAL OPERATORS
+     * && => AND
+     * || => OR
+     */
     
 }
