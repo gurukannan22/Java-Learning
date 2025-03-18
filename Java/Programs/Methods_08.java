@@ -3,7 +3,7 @@ package Programs;
 public class Methods_08 {
     public static void main(String[] hyt) {
         System.out.println(add(10,30));// calling method and passing the input parameters
-        sub(1.00,0.50);
+        sub(0.873,7839.837);
         System.out.println(add(28));
     }
 
@@ -13,7 +13,7 @@ public class Methods_08 {
     }
 
     public static int add(int a){ //Method with the return type int
-        int sum = a-a;
+        int sum = a+a;
         return sum;
     }
 
@@ -23,7 +23,7 @@ public class Methods_08 {
     }
 
     /** METHOD SYNTAX
-     * access-modifier | return-type | method-name |(input-parameters){
+     * access-modifier | return-datatype | method-name |(input-parameters){
      * return value;
      * }
      *   void => nothing
