@@ -171,5 +171,29 @@ public class CustomExceptionExample {
 ```
 Caught: This is a custom exception
 ```
+The **superclass of all exception classes in Java** is **`java.lang.Throwable`**.
+
+### **Hierarchy of Exception Handling in Java**
+```
+java.lang.Object
+   └── java.lang.Throwable  ← (Super class of all exceptions & errors)
+       ├── java.lang.Exception  ← (For recoverable exceptions)
+       │   ├── Checked Exceptions (IOException, SQLException, etc.)
+       │   └── Unchecked Exceptions (RuntimeException & its subclasses)
+       └── java.lang.Error  ← (For non-recoverable system errors)
+           ├── OutOfMemoryError
+           ├── StackOverflowError
+           └── VirtualMachineError
+```
+
+### **Key Points about `Throwable`**
+- **`Throwable`** is the root class for all exception and error classes.
+- It has two direct subclasses:
+  - **`Exception`** (used for application-level errors that can be handled)
+  - **`Error`** (used for serious system-level issues that are generally unrecoverable)
+- Contains important methods like:
+  - `getMessage()`
+  - `printStackTrace()`
+  - `toString()`
 
 ---
