@@ -7,7 +7,7 @@ public class UserInput {
     public static void main(String[] args) {
 
         System.out.println("Enter your Name: ");
-        String name = scan.nextLine();
+        String name = scan.next();
         System.out.println("Enter you age: ");
         int age = scan.nextInt();
 //        double temperature = scan.nextDouble();
