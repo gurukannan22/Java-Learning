@@ -1,6 +1,6 @@
 package Programs;
 
-public interface HeavyVehicle extends Vehicle {
+public interface HeavyVehicle{
     void lift();
 
     void unload();
