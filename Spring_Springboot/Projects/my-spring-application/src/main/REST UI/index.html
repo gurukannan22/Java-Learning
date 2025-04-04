@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student API UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Student Management</h1>
+<br>
+<div id="statusMessage"></div>
+<br>
+
+  <h3>Add Student</h3>
+  <input id="student_id" placeholder="Student ID">
+  <input id="first_name" placeholder="First Name">
+  <input id="last_name" placeholder="Last Name">
+  <input id="age" placeholder="Age">
+  <input id="grade" placeholder="Grade">
+  <button onclick="addStudent()">Add</button>
+
+  <h3>All Students</h3>
+  <button onclick="fetchStudents()">Refresh List</button>
+  <table id="studentsTable">
+    <thead>
+      <tr><th>ID</th> <th>First Name</th> <th>Last Name</th> <th>Age</th> <th>Grade</th> </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
