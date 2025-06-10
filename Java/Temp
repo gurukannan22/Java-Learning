@@ -1,0 +1,37 @@
+[Scheduler Trigger (every 20s)]
+       ↓
+[process() method in TRSProcessorScheduler]
+       ↓
+[getJobSchedulerLockEntity()]
+       ↓
+[Create JobSchedulerLock entity with metadata]
+       ↓
+[jobSchedulerLockRepository.obtainLock(...)]
+       ↓
+[IF lock is obtained]
+       ↓
+[Set Audit Metadata (auditData.setAppAuditData)]
+       ↓
+[trsProcessor.processAdhoc()]
+       ↓
+[queryHelper.fetchDeal()]
+       ↓
+[Fetch TPEMessage records from DB via tpeMessageRepository.findByModulus(11)]
+       ↓
+[Map DB records → TradeProcessorInput DTO list]
+       ↓
+[FOR EACH record in list]
+       ↓
+[tradeProcessor.processMessage(input)]
+       ↓
+[queryHelper.statusUpdate(ack, input)]
+       ↓
+[Clear TRSProcessorKeyValueMapper]
+       ↓
+[updateMetricsCount()]
+       ↓
+[Update metrics using timestamps and trsMetricsService.countTrades()]
+       ↓
+[END LOOP]
+       ↓
+[Finally → Release JobSchedulerLock via jobSchedulerLockRepository.releaseJobSchedulerLock()]
