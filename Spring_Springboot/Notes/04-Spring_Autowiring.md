@@ -22,7 +22,7 @@ Autowiring automatically connects collaborating beans, reducing the need for `<p
 
 **Example – byName:**
 ```xml
-<bean id="car" class="com.example.Car" autowire="byName"/>
+<bean id="car" class="com.example.programs.Car" autowire="byName"/>
 <bean id="engine" class="com.example.Engine"/>
 ```
 
@@ -34,14 +34,14 @@ Autowiring automatically connects collaborating beans, reducing the need for `<p
 
 ```java
 @Component
-public class Car {
+public class programs.Car {
     
     @Autowired
     private Engine engine;
 
     // or use constructor injection
     @Autowired
-    public Car(Engine engine) {
+    public programs.Car(Engine engine) {
         this.engine = engine;
     }
 }

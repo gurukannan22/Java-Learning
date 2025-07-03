@@ -6,7 +6,7 @@ OOP provides:
 ✔ **Code Reusability** → Write once, use multiple times.  
 ✔ **Modularity** → Divides the program into smaller, manageable parts.  
 ✔ **Encapsulation** → Protects data from unauthorized access.  
-✔ **Abstraction** → Hides complex implementation details.  
+✔ **programs.Abstraction** → Hides complex implementation details.  
 ✔ **Inheritance** → Enables code reuse from parent classes.  
 ✔ **Polymorphism** → Allows methods to have multiple forms.  
 
@@ -24,21 +24,21 @@ An **object** is an **instance** of a class, meaning it has its own values and b
 ### **Example: Creating a Class and Object**
 ```java
 // Defining a class
-class Car {
+class programs.Car {
     // Attributes (fields)
     String brand;
     int speed;
 
     // Method (behavior)
     void displayCar() {
-        System.out.println("Car Brand: " + brand + ", Speed: " + speed + " km/h");
+        System.out.println("programs.Car Brand: " + brand + ", Speed: " + speed + " km/h");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
         // Creating an object
-        Car myCar = new Car();
+        programs.Car myCar = new programs.Car();
         myCar.brand = "Toyota";
         myCar.speed = 120;
         myCar.displayCar();  // Calling the method
@@ -47,7 +47,7 @@ public class Main {
 ```
 **Output:**  
 ```
-Car Brand: Toyota, Speed: 120 km/h
+programs.Car Brand: Toyota, Speed: 120 km/h
 ```
 
 ---
@@ -65,35 +65,35 @@ A **constructor** is a special method used to **initialize objects** when they a
 
 ### **Example: Default & Parameterized Constructors**
 ```java
-class Car {
+class programs.Car {
     String brand;
     int speed;
 
     // Default Constructor
-    Car() {
+    programs.Car() {
         brand = "Unknown";
         speed = 0;
         System.out.println("Default Constructor Called");
     }
 
     // Parameterized Constructor
-    Car(String b, int s) {
+    programs.Car(String b, int s) {
         brand = b;
         speed = s;
         System.out.println("Parameterized Constructor Called");
     }
 
     void display() {
-        System.out.println("Car Brand: " + brand + ", Speed: " + speed);
+        System.out.println("programs.Car Brand: " + brand + ", Speed: " + speed);
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Car car1 = new Car();  // Calls Default Constructor
+        programs.Car car1 = new programs.Car();  // Calls Default Constructor
         car1.display();
 
-        Car car2 = new Car("Toyota", 120);  // Calls Parameterized Constructor
+        programs.Car car2 = new programs.Car("Toyota", 120);  // Calls Parameterized Constructor
         car2.display();
     }
 }
@@ -101,9 +101,9 @@ public class Main {
 **Output:**  
 ```
 Default Constructor Called  
-Car Brand: Unknown, Speed: 0  
+programs.Car Brand: Unknown, Speed: 0  
 Parameterized Constructor Called  
-Car Brand: Toyota, Speed: 120  
+programs.Car Brand: Toyota, Speed: 120  
 ```
 ---
 
@@ -244,8 +244,8 @@ Message from Child (Overridden)
 
 ---
 
-## **6️⃣ Abstraction (Hiding Implementation Details)**  
-Abstraction hides implementation details and shows **only essential features**.  
+## **6️⃣ programs.Abstraction (Hiding Implementation Details)**  
+programs.Abstraction hides implementation details and shows **only essential features**.  
 - **Abstract Class** → A class that **cannot** be instantiated.  
 - **Abstract Methods** → Methods with no implementation (to be overridden by subclasses).  
 
@@ -257,28 +257,28 @@ abstract class Vehicle {
 }
 
 // Concrete class (subclass)
-class Car extends Vehicle {
+class programs.Car extends Vehicle {
     @Override
     void start() {
-        System.out.println("Car starts with a key.");
+        System.out.println("programs.Car starts with a key.");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Vehicle myCar = new Car();
+        Vehicle myCar = new programs.Car();
         myCar.start();  // Calls overridden method
     }
 }
 ```
 **Output:**  
 ```
-Car starts with a key.
+programs.Car starts with a key.
 ```
 
 ---
 
-## **7️⃣ Interfaces (Achieving 100% Abstraction)**  
+## **7️⃣ Interfaces (Achieving 100% programs.Abstraction)**  
 An **interface** is a contract that defines methods **without implementation**. A class **must implement** all its methods.  
 
 ### **Example: Interface in Java**
