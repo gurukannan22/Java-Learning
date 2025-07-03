@@ -1,37 +1,41 @@
-[Scheduler Trigger (every 20s)]
-       ↓
-[process() method in TRSProcessorScheduler]
-       ↓
-[getJobSchedulerLockEntity()]
-       ↓
-[Create JobSchedulerLock entity with metadata]
-       ↓
-[jobSchedulerLockRepository.obtainLock(...)]
-       ↓
-[IF lock is obtained]
-       ↓
-[Set Audit Metadata (auditData.setAppAuditData)]
-       ↓
-[trsProcessor.processAdhoc()]
-       ↓
-[queryHelper.fetchDeal()]
-       ↓
-[Fetch TPEMessage records from DB via tpeMessageRepository.findByModulus(11)]
-       ↓
-[Map DB records → TradeProcessorInput DTO list]
-       ↓
-[FOR EACH record in list]
-       ↓
-[tradeProcessor.processMessage(input)]
-       ↓
-[queryHelper.statusUpdate(ack, input)]
-       ↓
-[Clear TRSProcessorKeyValueMapper]
-       ↓
-[updateMetricsCount()]
-       ↓
-[Update metrics using timestamps and trsMetricsService.countTrades()]
-       ↓
-[END LOOP]
-       ↓
-[Finally → Release JobSchedulerLock via jobSchedulerLockRepository.releaseJobSchedulerLock()]
+DECLARE @ColumnName NVARCHAR(100) = 'YourColumnName'  -- Replace with the column name you're searching for
+
+IF OBJECT_ID('tempdb..#Results') IS NOT NULL DROP TABLE #Results
+
+CREATE TABLE #Results (
+    DatabaseName SYSNAME,
+    TableName SYSNAME,
+    ColumnName SYSNAME
+)
+
+DECLARE @DatabaseName NVARCHAR(100)
+DECLARE db_cursor CURSOR FOR 
+SELECT name FROM sys.databases 
+WHERE state_desc = 'ONLINE' AND name NOT IN ('master', 'tempdb', 'model', 'msdb')
+
+OPEN db_cursor  
+FETCH NEXT FROM db_cursor INTO @DatabaseName  
+
+WHILE @@FETCH_STATUS = 0  
+BEGIN  
+    DECLARE @SQL NVARCHAR(MAX) = '
+    USE [' + @DatabaseName + '];
+    INSERT INTO #Results (DatabaseName, TableName, ColumnName)
+    SELECT 
+        ''' + @DatabaseName + ''',
+        t.name AS TableName,
+        c.name AS ColumnName
+    FROM sys.columns c
+    INNER JOIN sys.tables t ON c.object_id = t.object_id
+    WHERE c.name = ''' + @ColumnName + ''''
+
+    EXEC sp_executesql @SQL
+
+    FETCH NEXT FROM db_cursor INTO @DatabaseName  
+END  
+
+CLOSE db_cursor  
+DEALLOCATE db_cursor  
+
+-- Show results
+SELECT * FROM #Results
