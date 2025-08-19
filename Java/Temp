@@ -1,40 +1,72 @@
-DECLARE @ColumnName NVARCHAR(100) = 'YourColumnName'  -- Replace with the column name you're searching for
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-IF OBJECT_ID('tempdb..#Results') IS NOT NULL DROP TABLE #Results
+import javax.jms.Message;
+import javax.jms.TextMessage;
 
-CREATE TABLE #Results (
-    DatabaseName SYSNAME,
-    TableName SYSNAME,
-    ColumnName SYSNAME
-)
+import static org.mockito.Mockito.*;
 
-DECLARE @DatabaseName NVARCHAR(100)
-DECLARE db_cursor CURSOR FOR 
-SELECT name FROM sys.databases 
-WHERE state_desc = 'ONLINE' AND name NOT IN ('master', 'tempdb', 'model', 'msdb')
+class TImAckNackMessageListenerTest {
 
-OPEN db_cursor  
-FETCH NEXT FROM db_cursor INTO @DatabaseName  
+    private final AckNackPublisher ackNackPublisher = mock(AckNackPublisher.class);
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final LoadingStore loadingStore = mock(LoadingStore.class);
 
-WHILE @@FETCH_STATUS = 0  
-BEGIN  
-    DECLARE @SQL NVARCHAR(MAX) = '
-    USE [' + @DatabaseName + '];
-    INSERT INTO #Results (DatabaseName, TableName, ColumnName)
-    SELECT 
-        ''' + @DatabaseName + ''',
-        t.name AS TableName,
-        c.name AS ColumnName
-    FROM sys.columns c
-    INNER JOIN sys.tables t ON c.object_id = t.object_id
-    WHERE c.name = ''' + @ColumnName + ''''
+    private final TImAckNackMessageListener listener = new TImAckNackMessageListener();
 
-    EXEC sp_executesql @SQL
+    @Test
+    void testOnMessage_withMessageType() throws Exception {
+        // Arrange
+        TextMessage message = mock(TextMessage.class);
+        when(message.getText()).thenReturn("sample-message");
+        when(message.getStringProperty("MESSAGE_TYPE")).thenReturn("CUSTOM_TYPE");
 
-    FETCH NEXT FROM db_cursor INTO @DatabaseName  
-END  
+        // Inject mocks
+        listener.ackNackPublisher = ackNackPublisher;
+        listener.objMapper = objectMapper;
+        listener.loadingStore = loadingStore;
 
-CLOSE db_cursor  
+        // Act
+        listener.onMessage(message);
+
+        // Assert
+        verify(ackNackPublisher, times(1))
+                .publishMessage(any(TradeMessage.class), eq("CUSTOM_TYPE"));
+    }
+
+    @Test
+    void testOnMessage_withNullMessageType_defaultsToPoolAllocation() throws Exception {
+        // Arrange
+        TextMessage message = mock(TextMessage.class);
+        when(message.getText()).thenReturn("sample-message");
+        when(message.getStringProperty("MESSAGE_TYPE")).thenReturn(null);
+
+        listener.ackNackPublisher = ackNackPublisher;
+
+        // Act
+        listener.onMessage(message);
+
+        // Assert
+        verify(ackNackPublisher, times(1))
+                .publishMessage(any(TradeMessage.class), eq("POOL_ALLOCATION"));
+    }
+
+    @Test
+    void testOnMessage_withException() throws Exception {
+        // Arrange
+        TextMessage message = mock(TextMessage.class);
+        when(message.getText()).thenThrow(new RuntimeException("Simulated error"));
+
+        listener.ackNackPublisher = ackNackPublisher;
+
+        // Act
+        listener.onMessage(message);
+
+        // Assert
+        // Nothing thrown → handled by catch
+        verifyNoInteractions(ackNackPublisher);
+    }
+}CLOSE db_cursor  
 DEALLOCATE db_cursor  
 
 -- Show results
