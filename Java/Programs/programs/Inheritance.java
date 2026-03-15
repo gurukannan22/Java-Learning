@@ -8,16 +8,15 @@ public class Inheritance {
         }
     }
 
-    static class Dog extends Animal{ // sub-class or child-class
-
-        @Override
+    static class Dog extends Animal{
         void makeSound() {
+            super.makeSound();
             System.out.println("The Dog barks");
         }
     }
 
     public static void main(String[] args) {
-        Animal dog = new Dog();
-        dog.makeSound();
+       Dog dog = new Dog();
+       dog.makeSound();
     }
 }

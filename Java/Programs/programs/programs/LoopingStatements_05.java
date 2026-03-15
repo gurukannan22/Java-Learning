@@ -1,4 +1,4 @@
-package programs;
+package programs.programs;
 
 public class LoopingStatements_05 {
     public static void main(String[] args) {

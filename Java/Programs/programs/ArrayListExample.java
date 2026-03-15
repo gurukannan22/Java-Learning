@@ -1,10 +1,11 @@
 package programs;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ArrayListExample {
     public static void main(String[] args) {
-        ArrayList<String> arrlist = new ArrayList<>(19);
+        List<String> arrlist = new ArrayList<>(20);
         arrlist.add("One");
         arrlist.add("Two");
         arrlist.add("Three");
@@ -12,7 +13,7 @@ public class ArrayListExample {
         arrlist.add("Five");
         arrlist.add("Six");
         arrlist.add("Seven"); // adds the elements to the arraylist
-        System.out.println( arrlist.get(0)); // retrieves
+        System.out.println(arrlist.get(0)); // retrieves
         arrlist.set(6,"SEVEN"); //Replaces element at index
         System.out.println(arrlist);
         System.out.println(arrlist.size()); //retrieves the size of the Array

@@ -8,8 +8,8 @@ public class StreamsExample {
 
     public static void main(String[] args) {
         List<Integer> intList = Arrays.asList(1,3,5,7,9,0,8);
-//        intList.stream().filter(n->n%2==0).forEach(System.out::println);
-//        intList.stream().map(n->n*5).forEach(System.out::println);
+        intList.stream().filter(n->n%2==0).forEach(System.out::println);
+        intList.stream().map(n->n*5).forEach(System.out::println);
         fibanacci(1,20);
     }
 

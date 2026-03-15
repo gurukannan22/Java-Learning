@@ -1,5 +1,7 @@
 package programs;
 
+import programs.newcode.MyPizza;
+
 public class Interface {
    static class Lorry implements HeavyVehicle,Vehicle{
 
@@ -25,5 +27,7 @@ public class Interface {
         lorry.start();
         lorry.lift();
         lorry.unload();
+        MyPizza mypz = MyPizza.LARGE;
+        System.out.println(mypz +" "+mypz.price);
     }
 }

@@ -16,6 +16,21 @@ public class LamdaExample {
             System.out.println("its uppercase");
         }
 
+        Welcome wel = new Welcome() {
+            @Override
+            public void greet(String name) {
+                System.out.println("Welcome to Ednue" + name);
+            }
+        };
 
+        wel.greet("Vishnu");
+
+        Welcome welcome = (name -> System.out.println("Welcome to Ednue" + name));
+
+        welcome.greet("Chandru");
+    }
+
+    interface Welcome{
+        void greet(String name);
     }
 }

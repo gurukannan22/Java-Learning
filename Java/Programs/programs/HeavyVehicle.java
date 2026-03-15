@@ -1,7 +1,7 @@
 package programs;
 
 public interface HeavyVehicle{
-    void lift();
 
+    void lift();
     void unload();
 }
