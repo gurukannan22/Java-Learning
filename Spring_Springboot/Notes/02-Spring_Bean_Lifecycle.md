@@ -1,4 +1,4 @@
-# 🔄 **Spring Bean Lifecycle (FOr Theory Only)**
+# 🔄 **Spring Bean Lifecycle (For Theory Only)**
 
 Spring manages the lifecycle of beans from creation to destruction. Understanding the bean lifecycle is essential for managing resources and application behavior.
 
